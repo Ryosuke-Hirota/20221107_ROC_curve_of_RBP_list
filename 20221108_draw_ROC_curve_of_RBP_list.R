@@ -18,26 +18,26 @@ find.row <-function(x,y,a){
   return(data)
 }
 
-# inport RBP2GO
-# this talbe is located at ""
+# import RBP2GO list
+# this talbe is located at "\\fsw-q02\okamura-lab\Files_related_to_M1_Projects\Hirota\RBP2GO_data"
 setwd("C:/Rdata/RBP2GO_data")
 RBP2GO <-read.table("RBP2GO_no_blank.txt",sep="\t",header = T,stringsAsFactors = F,quote = "")
 RBP2GO <-RBP2GO[,c(1,2,11,15:57)]
 
-# inport table correspond
-# this talbe is located at ""
+# import table of RBP correspond to gene name in CCLE
+# this talbe is located at "Dropbox/Okamura Lab share folder/Hirota/results_and_matterials/RBP2GO's_RBPs_contained_to_CCLE"
 setwd("C:/Rdata/RBP2GO's_RBPs_contained_to_CCLE")
 RBP.list <-read.table("all_RBP2GO_RBPs_which_merged_with_CCLE.txt",sep="\t",header = T,stringsAsFactors = F)
 
-# inport result of correlation analysis
-# this result is located at ""
+# import result of correlation analysis
+# this result is located at "Dropbox/Okamura Lab share folder/Hirota/results_and_matterials/20220616_ROC_curve_for_determing_cutoff_of_cell_number"
 setwd("C:/Rdata/ROC_curve_for_cutoff")
 result <-read.table("combine_results_of_correlation_between_residual_and_RBP_exp.txt",sep="\t",header = T,stringsAsFactors = F)
 result[,1] <-paste0(result[,1],"_",result[,2],"_",result[,3],"_vs_",result[,4])
 r <-unique(result[,4])
 
-# inport list of physical interactions
-# this list is located at ""
+# import list of physical interactions
+# this list is located at "https://github.com/Ryosuke-Hirota/20221017_ROC_curve_with_list_of_functional_or_physical_interactions"
 setwd("C:/Rdata/20221017_ROC_curve_for_cutoff_with_functional_interactions")
 phy.list <-read.table("list_of_treiber_physical_interaction_between_RBP_and_miRNA.txt",sep="\t",header = T,stringsAsFactors = F)
 phy.list <-phy.list[phy.list[,5]>=3,]
